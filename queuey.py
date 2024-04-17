@@ -5,7 +5,6 @@ class Queuey:
         * list.pop
         * list.remove
     """
-
     def __init__(self, data_type):
         self.q = []
         self.data_type = data_type
@@ -23,20 +22,19 @@ class Queuey:
         """ Removes the next item in the queue and returns it """
         # Your code goes here
         if self.size == 0:
-            raise IndexError("The queue is empty")
-        else:
-            removed_item = self.item[0]
-            self.items = self.items[1:]
-            self.size -= 1
-            return removed_item
+            return None
+
+        removed_item = self.q[0]
+        self.q = self.q[1:]
+        self.size -= 1
+        return removed_item
 
     def peek(self):
         """ Returns the next item in the queue, but does not remove it """
         # Your code goes here
-        if self.size > 0:
-            return self.q[0]
-        else:
-            raise IndexError("The queue is empty")
+        if self.size == 0:
+            return None #IndexError("The queue is empty")
+        return self.q[0]
 
     def length(self) -> int:
         """ Returns the size of the queue """
